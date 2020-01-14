@@ -24,6 +24,8 @@
 		99C0DAE923C81E4A00F71FD5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C0DAE723C81E4A00F71FD5 /* HomeViewModel.swift */; };
 		99C0DAEA23C81E4A00F71FD5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C0DAE723C81E4A00F71FD5 /* HomeViewModel.swift */; };
 		B409CB52CCF1D43FD0F47DB8 /* Pods_ShorternUrlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5587B499B813BDB1C5C03FF /* Pods_ShorternUrlTests.framework */; };
+		E867F9E823CDA931007592AA /* UrlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E867F9E623CDA931007592AA /* UrlTableViewCell.swift */; };
+		E867F9E923CDA931007592AA /* UrlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E867F9E723CDA931007592AA /* UrlTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		C3B9EF9003427367AAA767C1 /* Pods_ShorternUrl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShorternUrl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D8C0DECB1BC0B3B9A0E2A6 /* Pods-ShorternUrlTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShorternUrlTests.release.xcconfig"; path = "Target Support Files/Pods-ShorternUrlTests/Pods-ShorternUrlTests.release.xcconfig"; sourceTree = "<group>"; };
 		E5587B499B813BDB1C5C03FF /* Pods_ShorternUrlTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShorternUrlTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E867F9E623CDA931007592AA /* UrlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlTableViewCell.swift; sourceTree = "<group>"; };
+		E867F9E723CDA931007592AA /* UrlTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UrlTableViewCell.xib; sourceTree = "<group>"; };
 		FCD24D74C02E7CAF6EA68A3E /* Pods-ShorternUrl-ShorternUrlUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShorternUrl-ShorternUrlUITests.debug.xcconfig"; path = "Target Support Files/Pods-ShorternUrl-ShorternUrlUITests/Pods-ShorternUrl-ShorternUrlUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +162,7 @@
 		99C0DADF23C80F1500F71FD5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E867F9E523CDA905007592AA /* TableViewCell */,
 				99C0DAB323C80E6C00F71FD5 /* ViewController.swift */,
 				99C0DAB523C80E6C00F71FD5 /* Main.storyboard */,
 			);
@@ -195,6 +200,15 @@
 				E5587B499B813BDB1C5C03FF /* Pods_ShorternUrlTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E867F9E523CDA905007592AA /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E867F9E623CDA931007592AA /* UrlTableViewCell.swift */,
+				E867F9E723CDA931007592AA /* UrlTableViewCell.xib */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		E9152E74FA7CD7DFFAE1A7F9 /* Pods */ = {
@@ -322,6 +336,7 @@
 				99C0DABC23C80E6D00F71FD5 /* LaunchScreen.storyboard in Resources */,
 				99C0DAB923C80E6D00F71FD5 /* Assets.xcassets in Resources */,
 				99C0DAB723C80E6C00F71FD5 /* Main.storyboard in Resources */,
+				E867F9E923CDA931007592AA /* UrlTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +467,7 @@
 				99C0DAE823C81E4A00F71FD5 /* HomeViewModel.swift in Sources */,
 				99C0DAE423C810B000F71FD5 /* ApiManager.swift in Sources */,
 				99C0DAB423C80E6C00F71FD5 /* ViewController.swift in Sources */,
+				E867F9E823CDA931007592AA /* UrlTableViewCell.swift in Sources */,
 				99C0DAB023C80E6C00F71FD5 /* AppDelegate.swift in Sources */,
 				99C0DAB223C80E6C00F71FD5 /* SceneDelegate.swift in Sources */,
 			);

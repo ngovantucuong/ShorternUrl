@@ -11,41 +11,50 @@ import RxCocoa
 import UIKit
 
 class HomeViewModel {
-    public let urlEntryTextField: PublishSubject<String> = PublishSubject()
-    public let urlShorten: PublishSubject<String> = PublishSubject()
+    // MARK: - Property
+    public let urlEntryTextField: PublishSubject<String?> = PublishSubject<String?>()
+    public let shorternUrls: PublishSubject<Result> = PublishSubject()
+    let disposeBag = DisposeBag()
+    var arrOriginUrl: BehaviorSubject<[(String, String)]> = BehaviorSubject(value: [])
+    var arrData: [(String, String)] = []
     
-    func ShortenURL(URLToSorten:String, topVC: UIViewController) -> String {
-        if verifyUrl(urlString:URLToSorten) != false{
-            guard let apiEndpoint = URL(string: "http://tinyurl.com/api-create.php?url=\(URLToSorten)")else {
-                self.ErrorMessage(error:("Error: doesn't seem to be a valid URL") as String, topVC: topVC)
-                return "" as String
+    // MARK: - Init
+    init() {
+        // Observe 
+        urlEntryTextField.asObserver().distinctUntilChanged().subscribe { (event) in
+            switch event {
+            case .next(let str):
+                self.didGetShorternUrl(shorternUrl: str ?? "")
+            case .error(let error):
+                print(error)
+            case .completed:
+                print("Complete TextField")
             }
-            do {
-                let shortURL = try String(contentsOf: apiEndpoint, encoding: String.Encoding.ascii)
-                self.urlShorten.onNext(shortURL)
-                self.urlShorten.onCompleted()
-                return shortURL as String
-            } catch let Error{
-                self.ErrorMessage(error:Error.localizedDescription, topVC: topVC)
-                return URLToSorten as String
+        }.disposed(by: disposeBag)
+        
+        ApiManager.shared.shorternUrlAPI.asObserver().subscribe { [weak self] (event) in
+            switch event {
+            case .next(let result):
+                switch result {
+                case .success(let urlStr, let date):
+                    self?.shorternUrls.onNext(.success(urlStr, date))
+                    self?.arrData.append((urlStr, date))
+                    self?.arrOriginUrl.onNext(self?.arrData ?? [])
+                case .failure(let error):
+                    self?.shorternUrls.onNext(.failure(error))
+                }
+            case .error(let error): print(error.localizedDescription)
+            case .completed: print("Complete API")
             }
-        }else{
-            self.ErrorMessage(error:"\(URLToSorten) doesn't seem to be a valid URL or is blank", topVC: topVC)
-            return "" as String
-        }
+        }.disposed(by: disposeBag)
     }
-    func verifyUrl (urlString: String?) -> Bool {
-        if let urlString = urlString {
-            if let url  = NSURL(string: urlString) {
-                return UIApplication.shared.canOpenURL(url as URL)
-            }
-        }
-        return false
+    
+    // MARK: - Func
+    func didGetShorternUrl(shorternUrl: String) {
+        guard !shorternUrl.isEmpty else { return }
+        ApiManager.shared.ShortenURL(URLToSorten: shorternUrl)
+        
     }
-    func ErrorMessage(error:String, topVC: UIViewController) {
-        let ErrorMessageAlert = UIAlertController(title:"Error", message: error, preferredStyle: .alert)
-        ErrorMessageAlert.addAction((UIAlertAction(title: "OK", style: .default, handler: nil)))
-        topVC.present(ErrorMessageAlert, animated: true, completion: nil)
-        print("Error:\(error)")
-    }
+    
+    
 }

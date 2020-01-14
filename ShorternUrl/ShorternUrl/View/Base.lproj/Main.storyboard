@@ -16,39 +16,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="baU-a3-v2g">
-                                <rect key="frame" x="20" y="118" width="374" height="34"/>
+                                <rect key="frame" x="20" y="94" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="shO-jp-IWa">
-                                <rect key="frame" x="20" y="214" width="374" height="648"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="shO-jp-IWa">
+                                <rect key="frame" x="0.0" y="228.5" width="414" height="633.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="0vt-PV-KZb"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="1tY-s5-Bsn"/>
-                                </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transfer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiP-6c-p5y">
+                                <rect key="frame" x="164" y="140" width="86.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ju-uZ-xZ2">
+                                <rect key="frame" x="20" y="178.5" width="374" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="vBN-ei-39U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="baU-a3-v2g" secondAttribute="trailing" constant="20" id="0tD-BY-7sp"/>
                             <constraint firstItem="baU-a3-v2g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4y3-mF-ykb"/>
-                            <constraint firstItem="shO-jp-IWa" firstAttribute="trailing" secondItem="baU-a3-v2g" secondAttribute="trailing" id="AZt-3E-uUr"/>
-                            <constraint firstItem="baU-a3-v2g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="74" id="P7J-gY-H1K"/>
-                            <constraint firstItem="shO-jp-IWa" firstAttribute="leading" secondItem="baU-a3-v2g" secondAttribute="leading" id="Req-qC-tSX"/>
-                            <constraint firstItem="shO-jp-IWa" firstAttribute="top" secondItem="baU-a3-v2g" secondAttribute="bottom" constant="62" id="Rm7-dG-fQj"/>
+                            <constraint firstItem="wiP-6c-p5y" firstAttribute="top" secondItem="baU-a3-v2g" secondAttribute="bottom" constant="12" id="6UO-ao-gNp"/>
+                            <constraint firstItem="wiP-6c-p5y" firstAttribute="centerX" secondItem="baU-a3-v2g" secondAttribute="centerX" id="KqF-ko-CAN"/>
+                            <constraint firstItem="baU-a3-v2g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="P7J-gY-H1K"/>
+                            <constraint firstItem="shO-jp-IWa" firstAttribute="top" secondItem="5ju-uZ-xZ2" secondAttribute="bottom" constant="20" id="RHs-lU-EXM"/>
+                            <constraint firstItem="5ju-uZ-xZ2" firstAttribute="trailing" secondItem="baU-a3-v2g" secondAttribute="trailing" id="Vwc-yp-mVw"/>
+                            <constraint firstItem="5ju-uZ-xZ2" firstAttribute="leading" secondItem="baU-a3-v2g" secondAttribute="leading" id="aoW-9D-OGU"/>
+                            <constraint firstItem="shO-jp-IWa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="h5n-T3-Zr3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="shO-jp-IWa" secondAttribute="bottom" id="hMN-cB-zle"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="shO-jp-IWa" secondAttribute="trailing" id="jMK-bR-FXG"/>
+                            <constraint firstItem="5ju-uZ-xZ2" firstAttribute="top" secondItem="wiP-6c-p5y" secondAttribute="bottom" constant="12" id="zP4-gE-9N6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="entryTf" destination="baU-a3-v2g" id="46e-7c-ZEm"/>
+                        <outlet property="shorternLb" destination="5ju-uZ-xZ2" id="6Gh-vA-RIr"/>
                         <outlet property="tableView" destination="shO-jp-IWa" id="oB4-50-3Dk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="139"/>
+            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>
